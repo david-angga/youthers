@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Youthers</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300italic,400italic,500,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="wrapper">
+
+  <header class="main">
+
+    <div class="container">
+
+      <div class="row-fluid upper">
+
+        <a class="logo" href="index.html"><%= image_tag "logo.png", :alt => "Youthers" %></a>
+
+        <div class="contact">
+
+          <ul class="clearfix none nmp">
+            <li><%= image_tag "icon-mail.png", :alt => "admin@youthers.com" %>admin@youthers.com</li>
+            <li><%= image_tag "icon-phone.png", :alt => "+44 41 639 2459" %>+44 141 639 2459</li>
+          </ul> 
+
+        </div> <!-- /.contact --> 
+
+      </div> <!-- /.row-fluid -->
+
+      <div class="row-fluid lower">   
+
+      <a class="hidden-desktop blue left button" data-target=".nav-collapse" data-toggle="collapse">Menu</a>
+
+        <nav class="nav-collapse collapse">
+          <ul class="clearfix none nmp inline">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Layouts</a>
+              <ul class="dropdown-menu">
+                <li><a href="page-left-sidebar.html">Left Sidebar</a></li>
+                <li><a href="page-right-sidebar.html">Right Sidebar</a></li>
+                <li><a href="full-width.html">Full Width</a></li>
+                <li><a href="columns.html">Columns</a></li>
+                <li><a href="404.html">404 Page</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Elements</a>
+              <ul class="dropdown-menu">
+                <li><a href="elements.html">All</a></li>
+                <li><a href="elements.html#buttons">Buttons</a></li>
+                <li><a href="elements.html#tabs">Tabs</a></li>
+                <li><a href="elements.html#lists">Lists</a></li>
+                <li><a href="elements.html#testimonials">Testimonials</a></li>
+                <li><a href="elements.html#skills">Skills</a></li>
+                <li><a href="elements.html#toggles">Toggles</a></li>
+                <li><a href="elements.html#accordions">Accordions</a></li>
+                <li><a href="elements.html#tables">Tables</a></li>
+                <li><a href="elements.html#pricing">Pricing Tables</a></li>
+                <li><a href="elements.html#alerts">Alerts</a></li>
+                <li class="dropdown-submenu has-children">
+                  <a href="#">Third Level</a>
+                  <ul class="dropdown-menu third-level sub-menu">
+                    <li><a href="#">Third Level Item</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Blog</a>
+              <ul class="dropdown-menu">
+                <li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
+                <li><a href="blog.html">Right Sidebar</a></li>
+                <li><a href="blog-single-right-sidebar.html">Single Post with Right Sidebar</a></li>
+                <li><a href="blog-single-left-sidebar.html">Single Post with Left Sidebar</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Portfolio</a>
+              <ul class="dropdown-menu">
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio-single-left-sidebar.html">Single with Left Sidebar</a></li>
+                <li><a href="portfolio-single-right-sidebar.html">Single with Right Sidebar</a></li>
+              </ul>
+            </li>
+            <li><a href="icons.html">Icons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="social">
+
+          <ul class="clearfix none nmp inline">
+            <li><a href="#"><%= image_tag "icon-facebook.png", :alt => "Facebook" %></a></li>
+            <li><a href="#"><%= image_tag "icon-twitter.png", :alt => "Twitter" %></a></li>
+          </ul>
+
+        </div> <!-- /.social -->
+
+      </div> <!-- /.row-fluid -->
+        
+      <hr class="striped" />
+            
+    </div> <!-- /.container -->
+  </header>
+
+<%= yield %>
+
+  <footer class="main">
+
+    <div class="container">
+      
+      <div class="row-fluid">
+        
+        <div class="span6">
+          
+          <div class="row-fluid">
+            
+            <div class="span12">
+              
+              <div class="widget">
+                
+                <h3><span>About Us</span></h3>
+                <%= image_tag "footer-logo.png", :alt => "Youthers", :class => "logo left" %>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                
+              </div> <!-- /.widget -->
+                
+            </div> <!-- /.span12 --> 
+          
+          </div> <!-- /.row-fluid -->
+
+          <div class="row-fluid">
+
+            <div class="span12">
+              
+                <div class="widget">
+                  
+                  <h3><span>Social</span></h3>
+
+                  <ul class="inline nmp none social">
+                    <li class="facebook"><a href="#"><%= image_tag "social/facebook.png", :alt => "twitter" %></a></li>
+                    <li class="twitter"><a href="#"><%= image_tag "social/twitter.png", :alt => "Twitter" %></a></li>
+                    <li class="rss"><a href="#"><%= image_tag "social/rss.png", :alt => "RSS" %></a></li>
+                  </ul>
+                  
+                </div> <!-- /.widget -->
+              
+            </div> <!-- /.span12 --> 
+
+          </div> <!-- /.row-fluid -->
+
+        </div> <!-- /.span6 --> 
+
+        <div class="span3">
+              
+            <div class="widget">
+              
+              <h3><span>Our Tweets</span></h3>
+
+              <div id="twitter_update_list"></div>
+              <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+              <script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline.json?count=1&amp;exclude_replies=true&amp;screen_name=twitter&amp;callback=twitterCallback2"></script>
+              
+            </div> <!-- /.widget -->
+
+        </div> <!-- /.span3 --> 
+
+        <div class="span3 contact">
+          
+          <div class="widget">
+            
+            <h3><span>Contact Us</span></h3>
+
+            <div id="results">
+              <div class="alert alert-error" id="error">
+                  Please fill in all required fields.
+              </div>  
+              <div class="alert alert-success" id="success">
+                  Thanks for getting in touch. We will get back to you shortly!
+              </div>
+            </div>
+
+          <%= image_tag "loading.gif", :alt => "Loading", :id => "loading" %>
+
+            <form id="footerForm" class="footer" action="footer-form.php" method="POST">
+
+              <input type="text" name="name" id="footername" class="req" placeholder="Name..." />
+              <input type="email" name="email" id="footeremail" class="req" placeholder="Email..." />
+              <textarea name="comments" class="req" id="footercomments" placeholder="Comments..."></textarea>
+              <input type="submit" value="Submit" />
+
+            </form>
+            
+          </div> <!-- /.widget -->
+
+        </div> <!-- /.span3 --> 
+
+      </div> <!-- /.row-fluid -->
+
+    </div> <!-- /.container --> 
+
+    <div class="copyright clearfix">
+      
+      <div class="container">
+        
+        <div class="left">
+          
+          <p>&copy; Copyright Fuzzbot 2013</p>
+
+        </div> <!-- /.left -->
+
+        <div class="right">
+          
+          <nav>
+            <ul class="none nmp inline">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="elements.html">Elements</a></li>
+              <li><a href="icons.html">Icons</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+        </div> <!-- /.right -->
+
+      </div> <!-- /.container -->
+
+    </div> <!-- /.copyright -->
+
+  </footer>
+
+</div>
+
+</body>
+</html>

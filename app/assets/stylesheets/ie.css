@@ -1,0 +1,16 @@
+div[id*='-slider'] .flex-caption p,
+article.portfolio .caption {
+	background:url('trans-black.png') left top repeat;
+}
+
+div[id*='-slider'] .flex-caption h2 {
+	background:url('trans-pink.png') left top repeat;	
+}
+
+article.portfolio .mask {
+	display:none;
+}
+
+header.main div.contact {
+	min-width:300px;
+}

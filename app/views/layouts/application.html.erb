@@ -37,60 +37,12 @@
 
         <nav class="nav-collapse collapse">
           <ul class="clearfix none nmp inline">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Layouts</a>
-              <ul class="dropdown-menu">
-                <li><a href="page-left-sidebar.html">Left Sidebar</a></li>
-                <li><a href="page-right-sidebar.html">Right Sidebar</a></li>
-                <li><a href="full-width.html">Full Width</a></li>
-                <li><a href="columns.html">Columns</a></li>
-                <li><a href="404.html">404 Page</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Elements</a>
-              <ul class="dropdown-menu">
-                <li><a href="elements.html">All</a></li>
-                <li><a href="elements.html#buttons">Buttons</a></li>
-                <li><a href="elements.html#tabs">Tabs</a></li>
-                <li><a href="elements.html#lists">Lists</a></li>
-                <li><a href="elements.html#testimonials">Testimonials</a></li>
-                <li><a href="elements.html#skills">Skills</a></li>
-                <li><a href="elements.html#toggles">Toggles</a></li>
-                <li><a href="elements.html#accordions">Accordions</a></li>
-                <li><a href="elements.html#tables">Tables</a></li>
-                <li><a href="elements.html#pricing">Pricing Tables</a></li>
-                <li><a href="elements.html#alerts">Alerts</a></li>
-                <li class="dropdown-submenu has-children">
-                  <a href="#">Third Level</a>
-                  <ul class="dropdown-menu third-level sub-menu">
-                    <li><a href="#">Third Level Item</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Blog</a>
-              <ul class="dropdown-menu">
-                <li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
-                <li><a href="blog.html">Right Sidebar</a></li>
-                <li><a href="blog-single-right-sidebar.html">Single Post with Right Sidebar</a></li>
-                <li><a href="blog-single-left-sidebar.html">Single Post with Left Sidebar</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Portfolio</a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="portfolio-single-left-sidebar.html">Single with Left Sidebar</a></li>
-                <li><a href="portfolio-single-right-sidebar.html">Single with Right Sidebar</a></li>
-              </ul>
-            </li>
-            <li><a href="icons.html">Icons</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="<%= active_link('home') %>"><%= link_to "Home", root_url %></li>
+            <li class="<%= active_link('about') %>"><%= link_to "About", about_index_url %></a></li>
+            <li class="<%= active_link('events') %>"><a href="services.html">Events</a></li>
+            <li class="<%= active_link('gallery') %>"><a href="icons.html">Gallery</a></li>
+            <li class="<%= active_link('devotions') %>"><a href="icons.html">Devotions</a></li>
+            <li class="<%= active_link('contact') %>"><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
 
@@ -212,7 +164,7 @@
         
         <div class="left">
           
-          <p>&copy; Copyright Fuzzbot 2013</p>
+          <p>&copy; Copyright Youthers 2013</p>
 
         </div> <!-- /.left -->
 

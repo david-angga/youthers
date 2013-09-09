@@ -18,7 +18,7 @@
 
       <div class="row-fluid upper">
 
-        <a class="logo" href="index.html"><%= image_tag "logo.png", :alt => "Youthers" %></a>
+        <a class="logo" href="/"><%= image_tag "logo.png", :alt => "Youthers" %></a>
 
         <div class="contact">
 
@@ -39,9 +39,8 @@
           <ul class="clearfix none nmp inline">
             <li class="<%= active_link('home') %>"><%= link_to "Home", root_url %></li>
             <li class="<%= active_link('about') %>"><%= link_to "About", about_index_url %></a></li>
-            <li class="<%= active_link('events') %>"><a href="services.html">Events</a></li>
-            <li class="<%= active_link('gallery') %>"><a href="icons.html">Gallery</a></li>
-            <li class="<%= active_link('devotions') %>"><a href="icons.html">Devotions</a></li>
+            <li class="<%= active_link('events') %>"><%= link_to "Events", events_url %></li>
+            <li class="<%= active_link('devotions') %>"><%= link_to "Devotions", devotions_url %></li>
             <li class="<%= active_link('contact') %>"><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -80,7 +79,7 @@
                 
                 <h3><span>About Us</span></h3>
                 <%= image_tag "footer-logo.png", :alt => "Youthers", :class => "logo left" %>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                <p>youthers.com adalah tempat gaulnya anak muda Kristen yang mau belajar untuk menjaga integritas dan dasar hidup dalam kebenaran.</p>
                 
               </div> <!-- /.widget -->
                 

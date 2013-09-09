@@ -1,0 +1,148 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Events</h1>
+      <span>our work</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid">
+      
+        <div class="span12">
+
+          <div class="portfolio-controls clearfix">
+              
+            <div class="pull-right hidden-phone">
+              
+              <span>Select number of columns:</span>
+              <select id="column-selector">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              
+            </div> <!-- /.pull-left -->
+            
+          </div> <!-- /.pull-left -->   
+        
+        </div> <!-- /.span12 --> 
+        
+      </div> <!-- /.row-fluid -->   
+
+      <div class="row-fluid">
+
+      <div id="portfolio" data-columns="3" class="three-col">
+    
+        <article class="portfolio creative">
+          <a href="/events/1">
+            <div class="holder">
+              <div class="mask"></div>
+              <div class="type">
+                <i class="icon icon-picture"></i>
+              </div>
+              <div class="caption">
+                <p>2nd Chance</p>
+              </div>
+              <%= image_tag "2nd chance.jpg" %>
+            </div>
+          </a>   
+        </article>
+
+        <article class="portfolio artwork">
+          <a href="/events/1">
+            <div class="holder">
+              <div class="mask"></div>
+              <div class="type">
+                <i class="icon icon-film"></i>
+              </div>
+              <div class="caption">
+                <p>Giving My Best</p>
+              </div>
+              <%= image_tag "gmb.jpg" %>
+            </div>   
+          </a>
+        </article>
+
+        <article class="portfolio business">
+          <a href="/events/1">
+            <div class="holder">
+              <div class="mask"></div>
+              <div class="type">
+                <i class="icon icon-music"></i>
+              </div>
+              <div class="caption">
+                <p>Life is not a masquerade</p>
+              </div>
+              <%= image_tag "life isnt mas.jpg" %>
+            </div>          
+          </a>
+        </article>
+
+      </div> <!-- /#portfolios -->
+
+      </div>
+      
+    </div> <!-- /.container -->
+      
+  </div> <!-- /.page-content -->
+
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+
+    function portfolio(val) {
+
+      columns = val;
+      var container = $('#portfolio');
+
+      if(columns == 4) { $span = 3 };
+      if(columns == 3) { $span = 4 };
+      if(columns == 2) { $span = 6 };
+
+      $('#portfolio article.portfolio')
+        .removeClass('span3 span4 span6')
+        .addClass('span' + $span);
+        
+      // initialize isotope
+      $(window).smartresize(function() {
+        container.isotope({
+          itemSelector: '.portfolio',
+          resizable: false, // disable normal resizing
+          masonry: {
+            columnWidth: container.width() / columns
+          }
+        });
+      }).smartresize();
+
+      container.imagesLoaded( function(){
+        $(window).smartresize();
+      });
+
+      $('#portfolio-filters a').click(function() {
+        var selector = $(this).attr('data-filter');
+        container.isotope( {
+          filter: selector
+        });
+        return false;
+      });
+
+      $('#column-selector').val(columns);
+    
+    }
+
+    var columns = $('#portfolio').data('columns');
+    portfolio(columns);
+
+    $('#column-selector').change(function() {
+      val = $(this).val();
+      portfolio(val);
+    })
+
+  });
+</script>

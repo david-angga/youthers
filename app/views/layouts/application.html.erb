@@ -4,8 +4,8 @@
   <title>Youthers</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300italic,400italic,500,700' rel='stylesheet' type='text/css'>
 </head>
@@ -41,7 +41,7 @@
             <li class="<%= active_link('about') %>"><%= link_to "About", about_index_url %></a></li>
             <li class="<%= active_link('events') %>"><%= link_to "Events", events_url %></li>
             <li class="<%= active_link('devotions') %>"><%= link_to "Devotions", devotions_url %></li>
-            <li class="<%= active_link('contact') %>"><a href="contact.html">Contact</a></li>
+            <li class="<%= active_link('contact') %>"><%= link_to "Contact", contact_index_url %></li>
           </ul>
         </nav>
 

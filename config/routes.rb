@@ -17,6 +17,7 @@ Youthers::Application.routes.draw do
   resources :about
   resources :events
   resources :devotions
+  resources :contact
 
   # Example resource route with options:
   #   resources :products do

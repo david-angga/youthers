@@ -1,0 +1,51 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Churches</h1>
+      <span>New</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:error].blank? %>
+            <div class="alert alert-warning"><%= flash[:error] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>Tambah Gereja</span></h2>
+
+          <div class="row-fluid">
+            
+            <div class="span12">
+
+              <%= form_for @church, :method => :post, :url => admin_churches_url do |f| %>
+                <%= f.text_field :church_name, :placeholder => "Nama Gereja *" %>
+                <%= f.text_field :church_address, :placeholder => "Alamat Gereja" %>
+                <%= f.text_field :church_phone, :placeholder => "Telepon Gereja" %>
+                <%= f.text_field :church_city, :placeholder => "Kota" %>
+                <%= f.text_field :church_province, :placeholder => "Provinsi" %>
+                tampilkan alamat &nbsp;&nbsp; <%= f.check_box :address_allowed %><br><br>
+                <%= f.text_field :youth_leader, :placeholder => "Ketua Youth" %>
+                <%= f.text_field :youthers_count, :placeholder => "Jumlah Anggota Youth" %>
+                <%= f.text_field :daerah, :placeholder => "Daerah" %>
+                <%= f.text_field :wilayah, :placeholder => "Wilayah" %>
+                <%= f.submit "Simpan" %>
+              <% end %>
+            </div>
+          </div>
+          
+        </div> <!-- /.span12 --> 
+
+      </div>
+
+    </div>
+  </div>
+</div>

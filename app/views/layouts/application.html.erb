@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Youthers</title>
+  <title>KMGGP</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -18,12 +18,12 @@
 
       <div class="row-fluid upper">
 
-        <a class="logo" href="/"><strong>LOGO</strong></a>
+        <a class="logo" href="/"><%= image_tag 'logo-ggp.jpg', :style => "width: 75px;" %></a>
 
         <div class="contact">
 
           <ul class="clearfix none nmp">
-            <li><%= image_tag "icon-mail.png", :alt => "admin@youthers.com" %>admin@youthers.com</li>
+            <li><%= image_tag "icon-mail.png", :alt => "admin@youthers.com" %>admin@kmggp.com</li>
             <li><%= image_tag "icon-phone.png", :alt => "+44 41 639 2459" %>+44 141 639 2459</li>
           </ul> 
 
@@ -42,6 +42,12 @@
             <li class="<%= active_link('events') %>"><%= link_to "Events", events_url %></li>
             <li class="<%= active_link('devotions') %>"><%= link_to "Devotions", devotions_url %></li>
             <li class="<%= active_link('contact') %>"><%= link_to "Contact", contact_index_url %></li>
+            <% unless current_user.nil? %>
+              <li class="<%= active_link('churches') %>"><%= link_to "Churches", admin_churches_url %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to "Login", "/admin" %></li>
+            <% end %>
           </ul>
         </nav>
 
@@ -78,7 +84,7 @@
               <div class="widget">
                 
                 <h3><span>About Us</span></h3>
-                <p>youthers.com adalah tempat gaulnya anak muda Kristen yang mau belajar untuk menjaga integritas dan dasar hidup dalam kebenaran.</p>
+                <p>kmggp adalah tempat gaulnya anak muda Kristen yang mau belajar untuk menjaga integritas dan dasar hidup dalam kebenaran.</p>
                 
               </div> <!-- /.widget -->
                 
@@ -162,7 +168,7 @@
         
         <div class="left">
           
-          <p>&copy; Copyright Youthers 2013</p>
+          <p>&copy; Copyright KMGGP 2013</p>
 
         </div> <!-- /.left -->
 

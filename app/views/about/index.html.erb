@@ -119,79 +119,40 @@
       
         <div class="span12">
           
-          <section class="tabs" id="tabs">
-        
-            <h2 class="header"><span>Our Locations</span></h2>
+          <h2 class="header"><span>Our Locations</span></h2>
 
-            <p>Jumlah Total Youthers saat ini: <strong>1330</strong></p>
-
-            <div class="tabs-wrapper">
-              
-              <ul class="tabs-nav">
-                <li><a href="#tab1-1">Mada 1</a></li>
-                <li><a href="#tab2-1">Mada 2</a></li>
-                <li><a href="#tab3-1">Mada 3</a></li>
-                <li><a href="#tab4-1">Mada 4</a></li>
-              </ul>
-
-              <div class="tab" id="tab1-1">
-                <table class="pink striped">
-                  <tr>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Kota</th>
-                    <th>Jumlah Youthers</th>
-                    <th>Wilayah</th>
-                  </tr>
-                  <tr>
-                    <td>Youth Shalom</td>
-                    <td>Jl. Semar no. 36</td>
-                    <td>Bandung</td>
-                    <td>170</td>
-                    <td>Mawil 1</td>
-                  </tr>
-                  <tr>
-                    <td>Youth Maranatha</td>
-                    <td>Jl. Semar no. 11</td>
-                    <td>Cimahi</td>
-                    <td>160</td>
-                    <td>Mawil 2</td>
-                  </tr>
-                </table>
-                <p>Jumlah Youthers: <strong>330</strong></p>
-              </div>
-              <div class="tab" id="tab2-1">
-                <table class="pink striped">
-                  <tr>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Kota</th>
-                    <th>Jumlah Youthers</th>
-                    <th>Wilayah</th>
-                  </tr>
-                  <tr>
-                    <td>Youth Eclesia</td>
-                    <td>Jl. Soka no 9</td>
-                    <td>Jakarta</td>
-                    <td>170</td>
-                    <td>Mawil 1</td>
-                  </tr>
-                  <tr>
-                    <td>Youth Getsemani</td>
-                    <td>Jl. Pelabuhan no. 10</td>
-                    <td>Sukabumi</td>
-                    <td>160</td>
-                    <td>Mawil 2</td>
-                  </tr>
-                </table>
-                <p>Jumlah Youthers: <strong>230</strong></p>
-              </div>
-              <div class="tab" id="tab3-1">Mada 3 Content</div>
-              <div class="tab" id="tab4-1">Mada 4 Content</div>
-              
-            </div> <!-- /.tabs-wrapper -->
-
-          </section>
+          <table class="pink striped">
+            <tr>
+              <th>Nama</th>
+              <th>Alamat</th>
+              <th>Telepon</th>
+              <th>Kota</th>
+              <th>Provinsi</th>
+              <th>Ketua Youth</th>
+              <th>Jml Youth</th>
+              <th>Daerah</th>
+              <th>Wilayah</th>
+            </tr>
+            <% if @churches.blank? %>
+              <tr>
+                <td colspan='10'>- belum ada data -</td>
+              </tr>
+            <% else %>
+              <% @churches.each do |church| %>
+                <tr>
+                  <td><%= church.church_name %></td>
+                  <td><%= church.address_allowed ? church.church_address : "-" %></td>
+                  <td><%= church.address_allowed ? church.church_phone : "-" %></td>
+                  <td><%= church.address_allowed ? church.church_city : "-" %></td>
+                  <td><%= church.address_allowed ? church.church_province : "-" %></td>
+                  <td><%= church.youth_leader %></td>
+                  <td><%= church.youthers_count %></td>
+                  <td><%= church.daerah %></td>
+                  <td><%= church.wilayah %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
 
         </div> <!-- /.span12 --> 
 

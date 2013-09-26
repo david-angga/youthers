@@ -1,0 +1,79 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Churches</h1>
+      <span>Index</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:notice].blank? %>
+            <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>List Gereja GGP</span></h2>
+          
+        </div> <!-- /.span12 --> 
+
+        <section id="tables">
+
+          <div class="row-fluid">
+          
+            <div class="span12">
+
+              <h5><i class="icon-plus"></i> <%= link_to "Tambah Gereja", new_admin_church_url %></h5>
+            
+              <table class="blue">
+                <tr>
+                  <th>Nama</th>
+                  <th>Alamat</th>
+                  <th>Telepon</th>
+                  <th>Kota</th>
+                  <th>Provinsi</th>
+                  <th>Tampilkan Alamat?</th>
+                  <th>Ketua Youth</th>
+                  <th># Youth</th>
+                  <th>Daerah</th>
+                  <th>Wilayah</th>
+                </tr>
+                <% if @churches.blank? %>
+                  <tr>
+                    <td colspan='10'>- belum ada data -</td>
+                  </tr>
+                <% else %>
+                  <% @churches.each do |church| %>
+                    <tr>
+                      <td><%= church.church_name %></td>
+                      <td><%= church.church_address %></td>
+                      <td><%= church.church_phone %></td>
+                      <td><%= church.church_city %></td>
+                      <td><%= church.church_province %></td>
+                      <td><%= church.address_allowed ? "ya" : "tidak" %></td>
+                      <td><%= church.youth_leader %></td>
+                      <td><%= church.youthers_count %></td>
+                      <td><%= church.daerah %></td>
+                      <td><%= church.wilayah %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+              
+            </div> <!-- /.span4 --> 
+            
+          </div> <!-- /.row-fluid --> 
+        
+        </section> <!-- #tables -->
+
+      </div> <!-- /.row-fluid -->
+    </div>
+  </div>
+</div>

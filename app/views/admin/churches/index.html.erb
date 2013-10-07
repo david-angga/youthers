@@ -44,6 +44,7 @@
                   <th># Youth</th>
                   <th>Daerah</th>
                   <th>Wilayah</th>
+                  <th>&nbsp;</th>
                 </tr>
                 <% if @churches.blank? %>
                   <tr>
@@ -62,6 +63,7 @@
                       <td><%= church.youthers_count %></td>
                       <td><%= church.daerah %></td>
                       <td><%= church.wilayah %></td>
+                      <td><%= link_to "Edit", edit_admin_church_url(church.id) %> | <%= link_to "Delete", admin_church_url(church.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
                     </tr>
                   <% end %>
                 <% end %>

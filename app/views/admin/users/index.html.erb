@@ -1,0 +1,81 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Users</h1>
+      <span>Index</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:notice].blank? %>
+            <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>List Users</span></h2>
+          
+        </div> <!-- /.span12 --> 
+
+        <section id="tables">
+
+          <div class="row-fluid">
+          
+            <div class="span12">
+
+              <h5><i class="icon-plus"></i> <%= link_to "Tambah User", new_admin_user_url %></h5>
+            
+              <table class="blue">
+                <tr>
+                  <th>Foto</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+                  <th>Sebagai Admin?</th>
+                  <th>Sebagai Pengurus Pusat?</th>
+                  <th>Jabatan</th>
+                  <th>Description</th>
+                  <th>&nbsp;</th>
+                </tr>
+                <% if @users.blank? %>
+                  <tr>
+                    <td colspan='11'>- belum ada data -</td>
+                  </tr>
+                <% else %>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td>
+                        <% if user.avatar.exists? %>
+                          <%= image_tag user.avatar.url(:medium) %>
+                        <% else %>
+                          <%= image_tag "author.jpg" %>
+                        <% end %>
+                      </td>
+                      <td><%= user.fullname %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.is_admin ? "ya" : "tidak" %></td>
+                      <td><%= user.is_crew ? "ya" : "tidak" %></td>
+                      <td><%= user.position%></td>
+                      <td><%= user.description %></td>
+                      <td><%= link_to "Edit", edit_admin_user_url(user.id) %> | <%= link_to "Delete", admin_user_url(user.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+              
+            </div> <!-- /.span4 --> 
+            
+          </div> <!-- /.row-fluid --> 
+        
+        </section> <!-- #tables -->
+
+      </div> <!-- /.row-fluid -->
+    </div>
+  </div>
+</div>

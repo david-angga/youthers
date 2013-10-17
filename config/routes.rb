@@ -22,6 +22,7 @@ Youthers::Application.routes.draw do
 
   namespace :admin do
     resources :churches
+    resources :users
   end
 
   get 'admin' => 'admin/churches#index'

@@ -49,71 +49,38 @@
       <div class="our-team">
 
         <h2 class="header"><span>Our team</span></h2>
-        
-        <div class="row-fluid">    
-          
-          <div class="span3 member">
-          
-            <div class="image">
-              <%= image_tag "staff/1.png", :alt => "Team 1" %>
-            </div> <!-- /.image -->
-
-            <div class="info">
-              
-              <header>
-                <h3>Ray Stephen Muljana</h3>
-                <span>Youth Shalom Leader</span>
-              </header>
-
-              <p>Gw lahir di Bandung, 19 Mei 1988 sebagai anak bungsu dari 3 bersaudara dari pasangan Handi Muljana dan Henny Herianti Jonathan. Ketika itu Indonesia baru merdeka 43 tahun. Gw besar di kota ini, menempuh pendidikan di kota ini juga, lulus dari UNPAR tahun 2012. Gw rindu pekerjaan Tuhan dinyatakan lewat komunitas Youth Shalom yang sekarang Tuhan ijinin gw pimpin.</p>
-              
-            </div> <!-- /.info -->
-              
-          </div> <!-- /.span3.member --> 
-
-          <div class="span3 member">
-          
-            <div class="image">
-              
-              <%= image_tag "staff/3.png", :alt => "Team 2" %>
+        <% unless @users.empty? %>
+          <% @users.each_with_index do |user, i|%>   
+            <% if i%4 == 0 && i==0%>
+              <div class="row-fluid">
+            <% elsif i%4 == 0 %>
+              </div><div class="row-fluid">
+            <% end %>
             
-            </div> <!-- /.image -->
-
-            <div class="info">
+              <div class="span3 member">
               
-              <header>
-                <h3>David Angga Prasetya</h3>
-                <span>Youth Shalom Deputy Leader</span>
-              </header>
+                <div class="image">
+                  <% if user.avatar.exists? %>
+                    <%= image_tag user.avatar.url(:medium) %>
+                  <% else %>
+                    <%= image_tag "author.jpg" %>
+                  <% end %>
+                </div> <!-- /.image -->
 
-              <p>Kalau perlu web site untuk menunjang usaha anda, hubungi saya!</p>
-              
-            </div> <!-- /.info -->
-            
-          </div> <!-- /.span3.member --> 
+                <div class="info">
+                  
+                  <header>
+                    <h3><%= user.fullname %></h3>
+                    <span><%= user.position %></span>
+                  </header>
 
-          <div class="span3 member">
-          
-            <div class="image">
-              
-              <%= image_tag "staff/4.png", :alt => "Team 3" %>
-            
-            </div> <!-- /.image -->
-
-            <div class="info">
-              
-              <header>
-                <h3>Samuel Setiawan</h3>
-                <span>Vice Chairman</span>
-              </header>
-
-              <p>Etiam nec augue enim, ut pulvinar turpis. Mauris sed aliquet mauris. Pellentesque id tincidunt eros. Cum sociis natoque penatibus.</p>
-              
-            </div> <!-- /.info -->
-            
-          </div> <!-- /.span3.member --> 
-          
-        </div> <!-- /.row-fluid -->
+                  <p><%= user.description %></p>
+                  
+                </div> <!-- /.info -->
+                  
+              </div> <!-- /.span3.member --> 
+          <% end %>
+        <% end %>
 
         <div class="row-fluid section">
       

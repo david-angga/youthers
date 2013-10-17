@@ -1,0 +1,53 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Users</h1>
+      <span>New</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:error].blank? %>
+            <div class="alert alert-warning"><%= flash[:error] %></div>
+            <% @user.errors.full_messages.each do |msg| %>  
+              <div class="alert alert-warning"><%= msg %></div> 
+            <% end %>
+          <% end %>
+        
+          <h2 class="header"><span>Tambah User</span></h2>
+
+          <div class="row-fluid">
+            
+            <div class="span12">
+
+              <%= form_for @user, :method => :post, :url => admin_users_url, :html => { :multipart => true } do |f| %>
+                <%= f.text_field :fullname, :placeholder => "Nama User *" %>
+                <%= f.text_field :email, :placeholder => "Email User *" %>
+                <%= f.password_field :password, :placeholder => "password" %>
+                <%= f.password_field :password_confirmation, :placeholder => "password" %>
+                Sebagai Admin? &nbsp;&nbsp; <%= f.check_box :is_admin %><br><br>
+                Sebagai Pengurus pusat? &nbsp;&nbsp; <%= f.check_box :is_crew %><br><br>
+                <%= f.text_field :position, :placeholder => "Jabatan" %>
+                <%= f.text_area :description, :placeholder => "Bio data" %>
+                Foto <%= f.file_field :avatar %> <br><br>
+                <%= f.submit "Simpan" %>
+              <% end %>
+            </div>
+          </div>
+          
+        </div> <!-- /.span12 --> 
+
+      </div>
+
+    </div>
+  </div>
+</div>

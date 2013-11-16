@@ -26,6 +26,7 @@ Youthers::Application.routes.draw do
   end
 
   get 'admin' => 'admin/churches#index'
+  get 'admin/events' => 'events#index_admin'
 
   # Example resource route with options:
   #   resources :products do

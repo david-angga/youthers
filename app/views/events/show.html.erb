@@ -3,7 +3,7 @@
     <div class="container">
       
       <h1 class="with-subtitle">Events</h1>
-      <span>2nd Chance</span>
+      <span><%= @event.event_name %></span>
         
     </div> <!-- /.container -->
 
@@ -22,10 +22,10 @@
             <ul class="slides">
 
               <li>
-                <a href="#"><%= image_tag "2nd chance.jpg" %></a>
+                <a href="#"><%= image_tag @event.event_picture.url(:big) %></a>
                 <div class="flex-caption">
-                  <h2>2nd Change</h2>
-                    <p>Is there any second chance in our life?</p>
+                  <h2><%= @event.event_name %></h2>
+                    <p><%= @event.event_short_desc %></p>
                 </div>
               </li>
 
@@ -43,10 +43,12 @@
               
               <h2 class="header"><span>Event Brief</span></h2>
 
-              <p><strong>Cras eu massa mi, tristique eleifend quam. Fusce accumsan arcu vitae nisi sagittis consectetur. Vestibulum interdum faucibus magna, sit amet accumsan risus ullamcorper in.</strong></p>
-
-              <p>Aenean consectetur, mi sed adipiscing posuere, nisl metus consectetur neque, blandit suscipit quam leo ut quam. Maecenas tristique purus sed nulla feugiat a euismod ante pretium.eu mi placerat varius semper vel est. </p>
-              
+              <p><strong><%= @event.event_desc %></strong></p>
+              <% if @event.is_share && Date.today > @event.event_date %>
+                <p>Jika ingin mengadakan event serupa, dapat menghubungi PIC dibawah ini untuk keterangan lebih lanjut.</p>
+                <p>PIC: <%= @event.event_pic %><br>
+                Phone: <%= @event.event_pic_phone %></p>
+              <% end %>
             </div> <!-- /. -->        
 
           </aside>

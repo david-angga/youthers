@@ -39,6 +39,8 @@ gem 'devise'
 #gem "paperclip-dropbox", ">= 1"
 gem 'paperclip'
 
+gem 'bootstrap-datepicker-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

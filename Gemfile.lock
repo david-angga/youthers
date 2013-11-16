@@ -28,6 +28,8 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.1.2)
+    bootstrap-datepicker-rails (1.1.1.9)
+      railties (>= 3.0)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -132,6 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)

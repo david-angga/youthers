@@ -48,6 +48,7 @@
                 <ul class="dropdown-menu">
                   <li class="<%= active_link('churches') %>"><%= link_to "Churches", admin_churches_url %></li>
                   <li class="<%= active_link('users') %>"><%= link_to "Users", admin_users_url %></li>
+                  <li class="<%= active_link('events') %>"><%= link_to "Events", admin_events_url %></li>
                 </ul>
               </li>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
@@ -203,4 +204,11 @@
 </div>
 
 </body>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: 'dd MM yyyy'
+    });
+  })
+</script>
 </html>

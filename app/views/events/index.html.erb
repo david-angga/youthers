@@ -39,51 +39,26 @@
       <div class="row-fluid">
 
       <div id="portfolio" data-columns="3" class="three-col">
-    
-        <article class="portfolio creative">
-          <a href="/events/1">
-            <div class="holder">
-              <div class="mask"></div>
-              <div class="type">
-                <i class="icon icon-picture"></i>
+        <% @events.each do |event| %>
+          <article class="portfolio creative">
+            <a href="<%= event_url(event.id) %>">
+              <div class="holder">
+                <div class="mask"></div>
+                <div class="type">
+                  <i class="icon icon-picture"></i>
+                </div>
+                <div class="caption">
+                  <p><%= event.event_name %></p>
+                </div>
+                <% if event.event_picture.exists? %>
+                  <%= image_tag event.event_picture.url(:medium) %>
+                <% else %>
+                  <%= image_tag "author.jpg" %>
+                <% end %>
               </div>
-              <div class="caption">
-                <p>2nd Chance</p>
-              </div>
-              <%= image_tag "2nd chance.jpg" %>
-            </div>
-          </a>   
-        </article>
-
-        <article class="portfolio artwork">
-          <a href="/events/1">
-            <div class="holder">
-              <div class="mask"></div>
-              <div class="type">
-                <i class="icon icon-film"></i>
-              </div>
-              <div class="caption">
-                <p>Giving My Best</p>
-              </div>
-              <%= image_tag "gmb.jpg" %>
-            </div>   
-          </a>
-        </article>
-
-        <article class="portfolio business">
-          <a href="/events/1">
-            <div class="holder">
-              <div class="mask"></div>
-              <div class="type">
-                <i class="icon icon-music"></i>
-              </div>
-              <div class="caption">
-                <p>Life is not a masquerade</p>
-              </div>
-              <%= image_tag "life isnt mas.jpg" %>
-            </div>          
-          </a>
-        </article>
+            </a>   
+          </article>
+        <% end %>
 
       </div> <!-- /#portfolios -->
 

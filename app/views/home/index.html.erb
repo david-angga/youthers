@@ -46,90 +46,38 @@
           
       <h2 class="header"><span>Latest Events</span></h2>
       <div class="row-fluid">
-        
-        <div class="span4">
+        <% if @events.blank? %>
+          <p>- belum ada data -</p>
+        <% end %>
+        <% @events.each do |event| %>
+          <div class="span4">
 
-          <article class="portfolio">
-            <a href="/events/1">
-              <div class="holder">
-                <div class="mask"></div>
-                <div class="type">
-                  <i class="icon icon-picture"></i>
+            <article class="portfolio">
+              <a href="<%= event_url(event.id) %>">
+                <div class="holder">
+                  <div class="mask"></div>
+                  <div class="type">
+                    <i class="icon icon-picture"></i>
+                  </div>
+                  <%= image_tag event.event_picture.url(:medium), :alt => event.event_name %>
+                  <div class="caption">
+                    <p><%= event.event_name %></p>
+                  </div>
                 </div>
-                <%= image_tag "2nd chance.jpg", :alt => "Slide Images" %>
-                <div class="caption">
-                  <p>2nd Chance</p>
-                </div>
-              </div>
-            </a>
+              </a>
+                
+              <div class="text">
+                
+                <h6><%= event.event_name %></h6>
+                <p><%= event.event_short_desc %></p>
+                <a class="more" href="<%= event_url(event.id) %>">&gt;</a>
+
+              </div> <!-- /.text -->
               
-            <div class="text">
+            </article>
               
-              <h6>2nd Chance</h6>
-              <p>Is there any second chance in our life?</p>
-              <a class="more" href="/events/1">&gt;</a>
-
-            </div> <!-- /.text -->
-            
-          </article>
-            
-        </div> <!-- /.span4 --> 
-
-        <div class="span4">
-                       
-          <article class="portfolio">
-            <a href="/events/1">
-              <div class="holder">
-                <div class="mask"></div>
-                <div class="type">
-                  <i class="icon icon-picture"></i>
-                </div>
-                <%= image_tag "gmb.jpg", :alt => "Slide Images" %>
-                <div class="caption">
-                  <p>Giving My Best</p>
-                </div>
-              </div>
-            </a>
-              
-            <div class="text">
-              
-              <h6>Giving My Best</h6>
-              <p>To understand the reason of why we must give our best</p>
-              <a class="more" href="/events/1">&gt;</a>
-
-            </div> <!-- /.text -->
-            
-          </article>
-           
-        </div> <!-- /.span4 -->
-
-        <div class="span4">
-            
-          <article class="portfolio">
-            <a href="/events/1">
-              <div class="holder">
-                <div class="mask"></div>
-                <div class="type">
-                  <i class="icon icon-picture"></i>
-                </div>
-                <%= image_tag "life isnt mas.jpg", :alt => "Slide Images" %>
-                <div class="caption">
-                  <p>Life is not a masquerade</p>
-                </div>
-              </div>
-            </a>
-
-            <div class="text">
-              
-              <h6>Life is not a masquerade</h6>
-              <p>Be an authentic Christian</p>
-              <a class="more" href="/events/1">&gt;</a>
-
-            </div> <!-- /.text -->
-            
-          </article>
-            
-        </div> <!-- /.span4 -->
+          </div> <!-- /.span4 --> 
+        <% end %>
 
       </div> <!-- /.row-fluid -->
 

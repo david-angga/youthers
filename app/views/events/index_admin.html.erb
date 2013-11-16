@@ -1,0 +1,83 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Events</h1>
+      <span>Index</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:notice].blank? %>
+            <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>List Events</span></h2>
+          
+        </div> <!-- /.span12 --> 
+
+        <section id="tables">
+
+          <div class="row-fluid">
+          
+            <div class="span12">
+
+              <h5><i class="icon-plus"></i> <%= link_to "Tambah Event", new_event_url %></h5>
+            
+              <table class="blue">
+                <tr>
+                  <th>Poster</th>
+                  <th>Nama Event</th>
+                  <th>Tagline</th>
+                  <th>Deskripsi</th>
+                  <th>Tanggal</th>
+                  <th>Bisa di share</th>
+                  <th>PIC</th>
+                  <th>PIC Phone</th>
+                  <th>&nbsp;</th>
+                </tr>
+                <% if @events.blank? %>
+                  <tr>
+                    <td colspan='11'>- belum ada data -</td>
+                  </tr>
+                <% else %>
+                  <% @events.each do |event| %>
+                    <tr>
+                      <td>
+                        <% if event.event_picture.exists? %>
+                          <%= image_tag event.event_picture.url(:thumb) %>
+                        <% else %>
+                          <%= image_tag "author.jpg" %>
+                        <% end %>
+                      </td>
+                      <td><%= event.event_name %></td>
+                      <td><%= event.event_short_desc %></td>
+                      <td><%= event.event_desc %></td>
+                      <td><%= event.event_date.strftime("%d/%b/%Y") rescue "" %></td>
+                      <td><%= event.is_share ? "ya" : "tidak" %></td>
+                      <td><%= event.event_pic %></td>
+                      <td><%= event.event_pic_phone %></td>
+                      <td><%= link_to "Edit", edit_event_url(event.id) %> | <%= link_to "Delete", event_url(event.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+              
+            </div> <!-- /.span4 --> 
+            
+          </div> <!-- /.row-fluid --> 
+        
+        </section> <!-- #tables -->
+
+      </div> <!-- /.row-fluid -->
+    </div>
+  </div>
+</div>

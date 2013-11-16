@@ -1,0 +1,49 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Events</h1>
+      <span>Edit</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:error].blank? %>
+            <div class="alert alert-warning"><%= flash[:error] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>Edit Event</span></h2>
+
+          <div class="row-fluid">
+            
+            <div class="span12">
+
+              <%= form_for @event, :method => :put, :url => event_url(@event.id), :html => { :multipart => true } do |f| %>
+                <%= f.text_field :event_name, :placeholder => "Nama Event *" %>
+                <%= f.text_field :event_short_desc, :placeholder => "Tagline" %>
+                <%= f.text_area :event_desc, :placeholder => "Deskripsi" %>
+                <%= f.text_field :event_date, :class => "datepicker", :placeholder => "Tanggal Event"%>
+                Share event ini? &nbsp;&nbsp; <%= f.check_box :is_share %><br><br>
+                <%= f.text_field :event_pic, :placeholder => "PIC Event" %>
+                <%= f.text_field :event_pic_phone, :placeholder => "Phone number" %>
+                Poster <%= f.file_field :event_picture %> <br><br>
+                <%= f.submit "Simpan" %>
+              <% end %>
+            </div>
+          </div>
+          
+        </div> <!-- /.span12 --> 
+
+      </div>
+
+    </div>
+  </div>
+</div>

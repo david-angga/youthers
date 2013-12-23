@@ -43,12 +43,11 @@
                   <th>Ketua Youth</th>
                   <th># Youth</th>
                   <th>Daerah</th>
-                  <th>Wilayah</th>
                   <th>&nbsp;</th>
                 </tr>
                 <% if @churches.blank? %>
                   <tr>
-                    <td colspan='11'>- belum ada data -</td>
+                    <td colspan='10'>- belum ada data -</td>
                   </tr>
                 <% else %>
                   <% @churches.each do |church| %>
@@ -61,8 +60,7 @@
                       <td><%= church.address_allowed ? "ya" : "tidak" %></td>
                       <td><%= church.youth_leader %></td>
                       <td><%= church.youthers_count %></td>
-                      <td><%= church.daerah %></td>
-                      <td><%= church.wilayah %></td>
+                      <td><%= church.area.area_name rescue "n/a" %></td>
                       <td><%= link_to "Edit", edit_admin_church_url(church.id) %> | <%= link_to "Delete", admin_church_url(church.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
                     </tr>
                   <% end %>

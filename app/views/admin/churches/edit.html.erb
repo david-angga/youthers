@@ -35,8 +35,7 @@
                 tampilkan alamat &nbsp;&nbsp; <%= f.check_box :address_allowed %><br><br>
                 <%= f.text_field :youth_leader, :placeholder => "Ketua Youth" %>
                 <%= f.text_field :youthers_count, :placeholder => "Jumlah Anggota Youth" %>
-                <%= f.text_field :daerah, :placeholder => "Daerah" %>
-                <%= f.text_field :wilayah, :placeholder => "Wilayah" %>
+                Mada: <%= f.collection_select(:area_id, @areas, :id, :area_name) %>
                 <%= f.submit "Simpan" %>
               <% end %>
             </div>

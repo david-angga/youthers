@@ -85,41 +85,39 @@
         <div class="row-fluid section">
       
         <div class="span12">
+          <% @areas.each do |area| %>
           
-          <h2 class="header"><span>Our Locations</span></h2>
+            <h2 class="header"><span>Our Locations on Mada <%= area.area_name %></span></h2>
 
-          <table class="pink striped">
-            <tr>
-              <th>Nama</th>
-              <th>Alamat</th>
-              <th>Telepon</th>
-              <th>Kota</th>
-              <th>Provinsi</th>
-              <th>Ketua Youth</th>
-              <th>Jml Youth</th>
-              <th>Daerah</th>
-              <th>Wilayah</th>
-            </tr>
-            <% if @churches.blank? %>
+            <table class="pink striped">
               <tr>
-                <td colspan='10'>- belum ada data -</td>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Kota</th>
+                <th>Provinsi</th>
+                <th>Ketua Youth</th>
+                <th>Jml Youth</th>
               </tr>
-            <% else %>
-              <% @churches.each do |church| %>
+              <% if @churches.blank? %>
                 <tr>
-                  <td><%= church.church_name %></td>
-                  <td><%= church.address_allowed ? church.church_address : "-" %></td>
-                  <td><%= church.address_allowed ? church.church_phone : "-" %></td>
-                  <td><%= church.address_allowed ? church.church_city : "-" %></td>
-                  <td><%= church.address_allowed ? church.church_province : "-" %></td>
-                  <td><%= church.youth_leader %></td>
-                  <td><%= church.youthers_count %></td>
-                  <td><%= church.daerah %></td>
-                  <td><%= church.wilayah %></td>
+                  <td colspan='10'>- belum ada data -</td>
                 </tr>
+              <% else %>
+                <% @churches.select{|c| c.area_id == area.id}.each do |church| %>
+                  <tr>
+                    <td><%= church.church_name %></td>
+                    <td><%= church.address_allowed ? church.church_address : "-" %></td>
+                    <td><%= church.address_allowed ? church.church_phone : "-" %></td>
+                    <td><%= church.address_allowed ? church.church_city : "-" %></td>
+                    <td><%= church.address_allowed ? church.church_province : "-" %></td>
+                    <td><%= church.youth_leader %></td>
+                    <td><%= church.youthers_count %></td>
+                  </tr>
+                <% end %>
               <% end %>
-            <% end %>
-          </table>
+            </table>
+          <% end %>
 
         </div> <!-- /.span12 --> 
 

@@ -1,6 +1,7 @@
 class Admin::ChurchesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_active_page
+  before_filter :load_areas, :only => [:new, :edit, :index]
 
   def index
     @churches = Church.all
@@ -77,6 +78,10 @@ class Admin::ChurchesController < ApplicationController
 
   def church_param
     params.require(:church).permit(:church_name, :church_address, :church_phone, :church_city, 
-      :church_province, :youth_leader, :youthers_count, :daerah, :wilayah, :address_allowed)
+      :church_province, :youth_leader, :youthers_count, :daerah, :wilayah, :address_allowed, :area_id)
+  end
+
+  def load_areas
+    @areas = Area.all
   end
 end

@@ -1,0 +1,63 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Majelis Daerah</h1>
+      <span>Index</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:notice].blank? %>
+            <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>List Majelis Daerah GGP</span></h2>
+          
+        </div> <!-- /.span12 --> 
+
+        <section id="tables">
+
+          <div class="row-fluid">
+          
+            <div class="span12">
+
+              <h5><i class="icon-plus"></i> <%= link_to "Tambah Daerah", new_admin_area_url %></h5>
+            
+              <table class="blue">
+                <tr>
+                  <th>Nama</th>
+                  <th>&nbsp;</th>
+                </tr>
+                <% if @areas.blank? %>
+                  <tr>
+                    <td colspan='2'>- belum ada data -</td>
+                  </tr>
+                <% else %>
+                  <% @areas.each do |area| %>
+                    <tr>
+                      <td><%= area.area_name %></td>
+                      <td><%= link_to "Edit", edit_admin_area_url(area.id) %> | <%= link_to "Delete", admin_area_url(area.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+              
+            </div> <!-- /.span4 --> 
+            
+          </div> <!-- /.row-fluid --> 
+        
+        </section> <!-- #tables -->
+
+      </div> <!-- /.row-fluid -->
+    </div>
+  </div>
+</div>

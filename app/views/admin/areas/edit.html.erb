@@ -1,0 +1,42 @@
+<div class="page-title">
+    
+    <div class="container">
+      
+      <h1 class="with-subtitle">Daerah</h1>
+      <span>Edit</span>
+        
+    </div> <!-- /.container -->
+
+  </div> <!-- /.page-title -->
+
+  <div class="page-content">
+    
+    <div class="container">
+
+      <div class="row-fluid section">
+      
+        <div class="span12">
+          <% unless flash[:error].blank? %>
+            <div class="alert alert-warning"><%= flash[:error] %></div>
+          <% end %>
+        
+          <h2 class="header"><span>Edit Majelis Daerah</span></h2>
+
+          <div class="row-fluid">
+            
+            <div class="span12">
+
+              <%= form_for @area, :method => :put, :url => admin_area_url(@area.id) do |f| %>
+                <%= f.text_field :area_name, :placeholder => "Nama Daerah *" %>
+                <%= f.submit "Simpan" %>
+              <% end %>
+            </div>
+          </div>
+          
+        </div> <!-- /.span12 --> 
+
+      </div>
+
+    </div>
+  </div>
+</div>

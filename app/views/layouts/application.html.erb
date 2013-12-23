@@ -46,6 +46,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Site Management</a>
                 <ul class="dropdown-menu">
+                  <li class="<%= active_link('events') %>"><%= link_to "Majelis Daerah", admin_areas_url %></li>
                   <li class="<%= active_link('churches') %>"><%= link_to "Churches", admin_churches_url %></li>
                   <li class="<%= active_link('users') %>"><%= link_to "Users", admin_users_url %></li>
                   <li class="<%= active_link('events') %>"><%= link_to "Events", admin_events_url %></li>

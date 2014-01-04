@@ -85,115 +85,34 @@
 
     <div class="row-fluid section">
       
-      <div class="span6">
+      <div class="span12">
 
         <section class="blog">
   
           <h2 class="header"><span>Devotions</span></h2>
 
           <div class="row-fluid">
-            
-            <div class="span6">
+            <% @feed.items.each_with_index do |item, i| %>
+              <% if i <= 2 %>
+                <div class="span4">
 
-              <article class="item">
+                  <article class="item">
 
-                <div class="image">
+                    <h6><%= link_to item.title, item.link %></h6>
+                    <p><%= item.date.strftime("%a, %d %B %Y") %></p>
+                    <%= item.description.html_safe %>
+                    <%= link_to "Read more", item.link, :class => "grey button" %>
+                    
+                  </article>
                   
-                  <a href="/devotions/1">
-                    <%= image_tag "singers.jpg", :alt => "Blog one" %>
-                  </a>
-                  <div class="date">
-
-                    <span class="day">14</span>
-                    <span class="month">Feb</span>
-
-                  </div> <!-- /.date -->
-
-                </div> <!-- /.image -->
-
-                <h6><a href="/devotions/1">Arti sebuah pujian</a></h6>
-                <p>Ada kisah nyata seorang penyanyi terkenal di Eropa, seorang wanita yg memiliki suara bagus sekali.</p>
-                <a href="/devotions/1" class="grey button">Read more</a>
-                
-              </article>
-              
-            </div> <!-- /.span6 -->
-
-            <div class="span6">
-
-              <article class="item">
-
-                <div class="image">
-                  
-                  <a href="/devotions/1">
-                    <%= image_tag "donotentersign.jpg", :alt => "Blog one" %>
-                  </a>
-                  <div class="date">
-
-                    <span class="day">29</span>
-                    <span class="month">August</span>
-
-                  </div> <!-- /.date -->
-
-                </div> <!-- /.image -->
-
-                <h6><a href="/devotions/1">12 kata "jangan"</a></h6>
-                <p>12 kata “Jangan” yang perlu dihindari</p>
-                <a href="/devotions/1" class="grey button">Read more</a>
-                
-              </article>
-              
-            </div> <!-- /.span6 -->
-
+                </div> <!-- /.span6 -->
+              <% end%>
+            <% end %>
           </div> <!-- /.row-fluid -->  
 
         </section> <!-- /.blog -->
 
       </div> <!-- /.blog -->
-
-      <div class="span6">
-
-        <section class="testimonials">
-          
-          <h2 class="header"><span>What they say</span></h2>
-          
-          <div class="testimonials-wrapper">
-
-            <article class="testimonial">
-              <div class="text">
-                <p>Tempat gaul yang asyik di dunia maya. Dunianya boleh maya, berkatnya nyata.</p>
-              </div>
-              <div class="author">
-                <div class="image">
-                  <%= image_tag "author.jpg" %>
-                </div> <!-- /.image -->
-                <div class="details">
-                  <p>Ray Stephen</p>
-                  <span>Youthers Shalom</span>
-                </div> <!-- /.details -->               
-              </div> <!-- /.author -->      
-            </article> <!-- /.testimonial -->
-
-            <article class="testimonial">
-              <div class="text">
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              </div>
-              <div class="author">
-                <div class="image">
-                  <%= image_tag "author.jpg" %>
-                </div> <!-- /.image -->
-                <div class="details">
-                  <p>Samuel Setiawan</p>
-                  <span>Youthers Shalom</span>
-                </div> <!-- /.details -->               
-              </div> <!-- /.author -->
-            </article>
-
-          </div> <!-- /.testimonials-wrapper -->
-
-        </section>
-
-      </div> <!-- /.span6 --> 
 
     </div> <!-- /.row-fluid -->
 

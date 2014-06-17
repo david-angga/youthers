@@ -92,21 +92,29 @@
           <h2 class="header"><span>Devotions</span></h2>
 
           <div class="row-fluid">
-            <% @feed.items.each_with_index do |item, i| %>
-              <% if i <= 2 %>
-                <div class="span4">
+            <% if @feed.blank? %>
+              <div class="span12">
+                <article class="item">
+                  <p>- belum ada artikel -</p>
+                </article>
+              </div>
+            <% else %>
+              <% @feed.items.each_with_index do |item, i| %>
+                <% if i <= 2 %>
+                  <div class="span4">
 
-                  <article class="item">
+                    <article class="item">
 
-                    <h6><%= link_to item.title, item.link %></h6>
-                    <p><%= item.date.strftime("%a, %d %B %Y") %></p>
-                    <%= item.description.html_safe %>
-                    <%= link_to "Read more", item.link, :class => "grey button" %>
+                      <h6><%= link_to item.title, item.link %></h6>
+                      <p><%= item.date.strftime("%a, %d %B %Y") %></p>
+                      <%= item.description.html_safe %>
+                      <%= link_to "Read more", item.link, :class => "grey button" %>
+                      
+                    </article>
                     
-                  </article>
-                  
-                </div> <!-- /.span6 -->
-              <% end%>
+                  </div> <!-- /.span6 -->
+                <% end%>
+              <% end %>
             <% end %>
           </div> <!-- /.row-fluid -->  
 

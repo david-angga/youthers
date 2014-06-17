@@ -13,12 +13,16 @@ class HomeController < ApplicationController
     require 'open-uri'
 
     url = 'http://getmorestrength.org/rssfeed/'
-    open(url) do |rss|
-      @feed = RSS::Parser.parse(rss)
-      #puts "Title: #{feed.channel.title}"
-      #feed.items.each do |item|
-      #  puts "Item: #{item.title}"
-      #end
+    begin
+      open(url) do |rss|
+        @feed = RSS::Parser.parse(rss)
+        #puts "Title: #{feed.channel.title}"
+        #feed.items.each do |item|
+        #  puts "Item: #{item.title}"
+        #end
+      end
+    rescue
+      @feed = []
     end
   end
 end

@@ -40,7 +40,6 @@
             <li class="<%= active_link('home') %>"><%= link_to "Home", root_url %></li>
             <li class="<%= active_link('about') %>"><%= link_to "About", about_index_url %></a></li>
             <li class="<%= active_link('events') %>"><%= link_to "Events", events_url %></li>
-            <li class="<%= active_link('contact') %>"><%= link_to "Contact", contact_index_url %></li>
             <% unless current_user.nil? %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Site Management</a>
@@ -141,25 +140,9 @@
             
             <h3><span>Contact Us</span></h3>
 
-            <div id="results">
-              <div class="alert alert-error" id="error">
-                  Please fill in all required fields.
-              </div>  
-              <div class="alert alert-success" id="success">
-                  Thanks for getting in touch. We will get back to you shortly!
-              </div>
-            </div>
-
-          <%= image_tag "loading.gif", :alt => "Loading", :id => "loading" %>
-
-            <form id="footerForm" class="footer" action="footer-form.php" method="POST">
-
-              <input type="text" name="name" id="footername" class="req" placeholder="Name..." />
-              <input type="email" name="email" id="footeremail" class="req" placeholder="Email..." />
-              <textarea name="comments" class="req" id="footercomments" placeholder="Comments..."></textarea>
-              <input type="submit" value="Submit" />
-
-            </form>
+            <p>(021) 222 9918<br>
+            admin@kmggp.com</p>
+            <p>Jalan Kramat Soka No.4</p>
             
           </div> <!-- /.widget -->
 
@@ -183,13 +166,10 @@
           
           <nav>
             <ul class="none nmp inline">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="elements.html">Elements</a></li>
-              <li><a href="icons.html">Icons</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><%= link_to "Home", root_url %></li>
+              <li><%= link_to "About", about_index_url %></li>
+              <li><%= link_to "Events", events_url %></li>
+              <li><%= link_to "Login", "/admin" %></li>
             </ul>
           </nav>
 
